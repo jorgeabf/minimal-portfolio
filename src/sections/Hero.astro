@@ -6,6 +6,7 @@ import PhoneIcon from '@/icons/PhoneIcon.astro'
 import GitHub from '@/icons/GithubIcon.astro'
 import LinkedIn from '@/icons/LinkedinIcon.astro'
 import { basics } from '@cv'
+import { Image } from 'astro:assets'
 
 const { name, label, image, location, profiles, phone, email } = basics
 
@@ -70,7 +71,7 @@ const SOCIAL_ICONS: Record<string, any> = {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network]
             return (
-              <a
+              <a class="social-icon"
                 href={url}
                 title={`Visitar el perfil de ${name} en ${network}`}
                 target='_blank'
@@ -79,7 +80,6 @@ const SOCIAL_ICONS: Record<string, any> = {
                 <Icon
                   width='32px'
                   height='32px'
-                  class='social-icon'
                 />
               </a>
             )
@@ -87,14 +87,13 @@ const SOCIAL_ICONS: Record<string, any> = {
         }
       </footer>
     </div>
-    <figure>
-      <img
-        width='80'
-        height='80'
-        src={image}
-        alt={`Foto de ${name}`}
-      />
-    </figure>
+    <Image
+      width='100'
+      height='100'
+      src={image}
+      alt={`Foto de ${name}`}
+      class='avatar'
+    />
   </div>
 </Section>
 
@@ -106,11 +105,13 @@ const SOCIAL_ICONS: Record<string, any> = {
     gap: 1.5rem;
   }
 
+  .avatar {
+    border-radius: var(--border-radius);
+  }
   .info {
     flex-basis: fit-content;
   }
   h1 {
-    font-size: 2.5rem;
     line-height: 0.6;
   }
 
@@ -119,7 +120,7 @@ const SOCIAL_ICONS: Record<string, any> = {
     font-size: 1.2rem;
     line-height: 1.2;
     text-wrap: balance;
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 10%);
   }
 
   .location {
@@ -128,11 +129,7 @@ const SOCIAL_ICONS: Record<string, any> = {
     gap: 0.5em;
     margin-bottom: 1rem;
     font-size: 1.1rem;
-    color: hsl(0, 0%, 30%);
-  }
-  figure {
-    border-radius: 0.75rem;
-    background-color: hsl(210, 100%, 90%);
+    color: var(--text-color);
   }
 
   footer {
@@ -143,9 +140,9 @@ const SOCIAL_ICONS: Record<string, any> = {
 
   footer a {
     padding: 0.5em;
-    background-color: hsl(0, 0%, 95%);
-    border-radius: 0.5rem;
-    color: hsl(0, 0%, 30%);
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
     transition: color 0.2s;
     &:hover {
       color: hsl(0, 0%, 0%);
