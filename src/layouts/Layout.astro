@@ -1,0 +1,140 @@
+---
+import Wrapper from '@/components/Wrapper.astro'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='viewport'
+      content='width=device-width'
+    />
+    <link
+      rel='canonical'
+      href={canonicalURL}
+    />
+    <link
+      rel='icon'
+      type='image/svg+xml'
+      href='/favicon.svg'
+    />
+    <meta
+      name='generator'
+      content={Astro.generator}
+    />
+    <title>{title}</title>
+    <meta
+      name='theme-color'
+      content='#4f4f4f2e'
+    />
+    <meta
+      name='description'
+      content={description}
+    />
+    <link
+      rel='sitemap'
+      href='/sitemap-index.xml'
+    />
+  </head>
+  <body>
+    <Wrapper>
+      <slot />
+    </Wrapper>
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Courier New,
+      monospace;
+    font-size: 16px;
+  }
+
+  figure,
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  [title] {
+    cursor: help;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      'Open Sans',
+      'Helvetica Neue',
+      sans-serif;
+    text-wrap: balance;
+  }
+
+  p {
+    margin-top: 0;
+    color: hsl(0, 0%, 30%);
+    text-wrap: pretty;
+  }
+</style>

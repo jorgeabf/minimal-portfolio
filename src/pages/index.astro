@@ -1,16 +1,30 @@
 ---
+import Layout from '../layouts/Layout.astro'
 
+import About from '@/sections/About.astro'
+import Education from '@/sections/Education.astro'
+import Experience from '@/sections/Experience.astro'
+import Hero from '@/sections/Hero.astro'
+import Projects from '@/sections/Projects.astro'
+import Skills from '@/sections/Skills.astro'
+import KeyboardManager from '@/sections/KeyboardManager.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title='Portfolio de Jorge Arce'
+  description='Desarrollador web y Gestor de Contenidos'
+>
+  <header>
+    <Hero />
+  </header>
+  <main>
+    <About />
+    <Experience />
+    <Education />
+    <Projects />
+    <Skills />
+  </main>
+  <footer>
+    <KeyboardManager />
+  </footer>
+</Layout>
