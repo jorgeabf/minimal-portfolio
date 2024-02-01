@@ -8,10 +8,10 @@ import { skills } from '@cv'
 <Section title='Habilidades'>
   <ul class="grid">
     {
-      skills.map(({ name, level, keywords }) => (
+      skills.map(({ name, keywords }) => (
         <li>
           <h3 class="flex">
-            {name} <Badge  dark>{level}</Badge>
+            {name}
           </h3>
           <ul class="flex">
             {keywords.map((keyword) => (

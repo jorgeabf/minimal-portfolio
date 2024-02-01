@@ -20,17 +20,18 @@ const { dark } = Astro.props
 
 <style>
   small {
-    color: var(--text-color);
-    background-color: var(--bg-light);
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-family: var(--font-mono);
     padding: 0.35em 0.5em;
-    line-height: 1;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.1;
   }
 
   .dark {
-    color: var(--bg-color);
     background-color: var(--bg-dark);
+    color: var(--bg-color);
   }
 </style>

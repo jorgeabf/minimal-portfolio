@@ -11,17 +11,30 @@
 </script>
 
 <style>
+  @keyframes top {
+    from {
+      transform: translateY(200%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
   button {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
     padding: 0.75em 1em;
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     color: #fff;
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
     z-index: 1;
+
+    view-timeline-name: --mostrar;
+    view-timeline-axis: block;
+    animation: linear top .1s;
+    animation-timeline: --mostrar;
   }
   @media print {
     button {

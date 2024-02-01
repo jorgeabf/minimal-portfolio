@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
+import {SITE_TITLE,SITE_DESCRIPTION} from '@/const'
+
 import About from '@/sections/About.astro'
 import Education from '@/sections/Education.astro'
 import Experience from '@/sections/Experience.astro'
@@ -11,8 +13,8 @@ import KeyboardManager from '@/sections/KeyboardManager.astro'
 ---
 
 <Layout
-  title='Portfolio de Jorge Arce'
-  description='Desarrollador web y Gestor de Contenidos'
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
 >
   <header>
     <Hero />

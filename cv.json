@@ -36,7 +36,7 @@
       "endDate": null,
       "summary": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit consectetur libero magnam error blanditiis!",
       "highlights": ["Mecánica", "Soldadura", "Montaje de Estructuras"],
-      "remote": true
+      "remote": false
     },
     {
       "name": "Michelín",
