@@ -8,23 +8,23 @@ const { dark } = Astro.props
 
 {
   dark ? (
-    <span class='dark'>
+    <small class='dark'>
       <slot />
-    </span>
+    </small>
   ) : (
-    <span>
+    <small>
       <slot />
-    </span>
+    </small>
   )
 }
 
 <style>
-  span {
+  small {
     color: var(--text-color);
     background-color: var(--bg-light);
     border-radius: var(--border-radius);
-    font-size: 0.7em;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: var(--font-mono);
     padding: 0.35em 0.5em;
     line-height: 1;
   }

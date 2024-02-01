@@ -1,7 +1,25 @@
 ---
+import Badge from '@/components/Badge.astro'
 import Section from '@/components/Section.astro'
+
+import { skills } from '@cv'
 ---
 
 <Section title='Habilidades'>
-  
+  <ul class="grid">
+    {
+      skills.map(({ name, level, keywords }) => (
+        <li>
+          <h3 class="flex">
+            {name} <Badge  dark>{level}</Badge>
+          </h3>
+          <ul class="flex">
+            {keywords.map((keyword) => (
+              <li><Badge>{keyword}</Badge></li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
 </Section>

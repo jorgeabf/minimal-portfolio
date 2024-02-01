@@ -12,7 +12,7 @@
       "postalCode": "CA 94115",
       "city": "Vitoria",
       "countryCode": "ES",
-      "region": "Álava"
+      "region": "España"
     },
     "profiles": [
       {
@@ -102,6 +102,26 @@
       "name": "Web Development",
       "level": "Master",
       "keywords": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "name": "Graphic Design",
+      "level": "Master",
+      "keywords": ["Photoshop"]
+    },
+    {
+      "name": "Project Management",
+      "level": "Master",
+      "keywords": ["Agile", "Scrum"]
+    },
+    {
+      "name": "Maquetación",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "name": "Diseño Adaptable",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
     }
   ],
   "languages": [
@@ -124,12 +144,35 @@
   ],
   "projects": [
     {
-      "name": "Project",
-      "startDate": "2019-01-01",
-      "endDate": "2021-01-01",
-      "description": "Description...",
-      "highlights": ["Won award at AIHacks 2016"],
-      "url": "https://project.com/"
+      "name": "Club Ajedrez Eguidazu",
+      "isActive": true,
+      "url": "https://www.ajedrezeguidazu.com/",
+      "description": "Página Web del Club de Ajedrez Eguidazu, con información del Club, Jugadores y Torneos.",
+      "highlights": ["Programación", "Mantenimiento", "Gestión de Contenidos"]
+    },
+
+    {
+      "name": "Autoescuela San Prudencio",
+      "isActive": true,
+      "url": "https://www.autoescuelasanprudencio.com/",
+      "description": "Página Web de la Autoescuela San Prudencio, con información de la Autoescuela, Cursos y Test.",
+      "highlights": ["Programación", "Mantenimiento", "Gestión de Contenidos"]
+    },
+
+    {
+      "name": "Máster en Medicina de Emergencia",
+      "isActive": true,
+      "url": "https://www.masteremergencias.com/",
+      "description": "Página Web del Máster en Medicina de Emergencia, con información del Máster, Profesores y Alumnos.",
+      "highlights": ["Programación", "Mantenimiento", "Gestión de Contenidos"]
+    },
+
+    {
+      "name": "Máster en Gestión de Pacientes",
+      "isActive": true,
+      "url": "https://www.mastergespa.com/",
+      "description": "Página Web del Máster en Gestión de Pacientes, con información del Máster, Profesores y Alumnos.",
+      "highlights": ["Programación", "Mantenimiento", "Gestión de Contenidos"]
     }
   ]
 }

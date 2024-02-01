@@ -51,17 +51,17 @@ const { title, description } = Astro.props
 
 <style is:global>
 :root {
-  --h1-color: hsl(0, 0%, 0%);
-  --h2-color: hsl(0, 0%, 10%);
-  --h3-color: hsl(0, 0%, 20%);
-  --h4-color: hsl(0, 0%, 30%);
-  --text-color: hsl(0, 0%, 40%);
+  --h1-color: #000000;
+  --h2-color: #1a1a1a;
+  --h3-color: #333333;
+  --h4-color: #4d4d4d;
+  --text-color: #666666;
 
-  --bg-color: hsl(0, 0%, 100%);
-  --bg-dark: hsl(0, 0%, 10%);
-  --bg-light: hsl(0, 0%, 95%);
+  --bg-color: #ffffff;
+  --bg-dark: #404040;
+  --bg-light: #f2f2f2;
 
-  --font-mono: Menlo, Monaco, Lucida Console, Courier New, monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   --font-title: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   --border-radius: 0.4em;
@@ -82,7 +82,7 @@ const { title, description } = Astro.props
     margin: 0;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    font-family: var(--font-mono),
+    font-family: var(--font-mono);
     font-size: 16px;
     letter-spacing: -0.025em;
     color:var(--text-color);
@@ -140,7 +140,7 @@ const { title, description } = Astro.props
   }
   h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--h3-color)
   }
 
@@ -152,4 +152,19 @@ const { title, description } = Astro.props
     margin-top: 0;
     text-wrap: pretty;
   }
+
+  a{text-decoration: none;}
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5em;
+  }
+
+  .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2em;
+    }
 </style>

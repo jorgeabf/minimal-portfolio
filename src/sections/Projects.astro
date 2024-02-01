@@ -1,6 +1,64 @@
 ---
-import Section from "@/components/Section.astro"
+import Badge from '@/components/Badge.astro'
+import Section from '@/components/Section.astro'
+
+import { projects } from '@cv'
 ---
 
-<Section title="Proyectos">
+<Section title='Proyectos'>
+  <ul class='grid'>
+    {
+      projects.map(({ url, description, highlights, name, isActive }) => {
+        return (
+          <li>
+            <article>
+              <header>
+                <a
+                  href={url}
+                  title={`Ver el Proyecto ${name}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <h3>
+                    {name} {isActive && <div class='dot' />}
+                  </h3>
+                </a>
+                <p>{description}</p>
+              </header>
+              <footer>
+                <ul class='flex'>
+                  {highlights.map((highlight) => {
+                    return (
+                      <li>
+                        <Badge>{highlight}</Badge>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </footer>
+            </article>
+          </li>
+        )
+      })
+    }
+  </ul>
 </Section>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline var(--text-color);
+  }
+
+  .dot {
+    display: inline-block;
+    width: 0.375em;
+    height: 0.375em;
+    border-radius: 50%;
+    background-color: #339933;
+    margin-left: 0.125em;
+  }
+</style>

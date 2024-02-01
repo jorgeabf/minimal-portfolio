@@ -16,6 +16,11 @@ const SOCIAL_ICONS: Record<string, any> = {
   GitHub,
   LinkedIn
 }
+
+const linkedInInfo = profiles.find(({ network }) => network === 'LinkedIn')
+const linkedInUrl = linkedInInfo?.url
+const githubInfo = profiles.find(({ network }) => network === 'GitHub')
+const githubUrl = githubInfo?.url
 ---
 
 <Section>
@@ -24,7 +29,7 @@ const SOCIAL_ICONS: Record<string, any> = {
       <h1>{name}</h1>
       <p>{label}</p>
       <span
-        class='location'
+        class='location flex'
         title='Localidad y Provincia'
       >
         <LocationIcon
@@ -33,18 +38,33 @@ const SOCIAL_ICONS: Record<string, any> = {
           class='social-icon'
         />{city}, {region}
       </span>
-      <footer>
+      <footer class='flex'>
+        <ul class='print'>
+          <li>
+            {email}
+          </li>
+          <li>
+            {phone}
+          </li>
+          <li>
+            {linkedInUrl}
+          </li>
+          <li>
+            {githubUrl}
+          </li>
+        </ul>
         {
           email && (
             <a
+              class='social-link'
               href={`mailto:${email}`}
               target='_blank'
               rel='noopener noreferrer'
               title={`Enviar un Email a ${name} a la dirección ${email}`}
             >
               <MailIcon
-                width='32px'
-                height='32px'
+                width='24px'
+                height='24px'
                 class='social-icon'
                 title={`Enviar un Email a ${name} a la dirección ${email}`}
               />
@@ -54,14 +74,15 @@ const SOCIAL_ICONS: Record<string, any> = {
         {
           phone && (
             <a
+              class='social-link'
               href={`tel:${phone}`}
               title={`Llamar a ${name} al número ${phone}`}
               target='_blank'
               rel='noopener noreferrer'
             >
               <PhoneIcon
-                width='32px'
-                height='32px'
+                width='24px'
+                height='24px'
                 class='social-icon'
               />
             </a>
@@ -71,15 +92,16 @@ const SOCIAL_ICONS: Record<string, any> = {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network]
             return (
-              <a class="social-icon"
+              <a
+                class='social-link'
                 href={url}
                 title={`Visitar el perfil de ${name} en ${network}`}
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 <Icon
-                  width='32px'
-                  height='32px'
+                  width='24px'
+                  height='24px'
                 />
               </a>
             )
@@ -124,18 +146,7 @@ const SOCIAL_ICONS: Record<string, any> = {
   }
 
   .location {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
     margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: var(--text-color);
-  }
-
-  footer {
-    display: flex;
-    align-items: center;
-    gap: 1em;
   }
 
   footer a {
@@ -146,6 +157,24 @@ const SOCIAL_ICONS: Record<string, any> = {
     transition: color 0.2s;
     &:hover {
       color: hsl(0, 0%, 0%);
+    }
+  }
+
+  .social-link {
+    z-index: 1;
+  }
+
+  .print {
+    display: none;
+  }
+
+  @media print {
+    .print {
+      display: block;
+    }
+    .social-link,
+    .location {
+      display: none;
     }
   }
 </style>
