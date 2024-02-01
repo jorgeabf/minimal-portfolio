@@ -1,47 +1,154 @@
 ---
 import Section from '@/components/Section.astro'
+import LocationIcon from '@/icons/LocationIcon.astro'
+import MailIcon from '@/icons/MailIcon.astro'
+import PhoneIcon from '@/icons/PhoneIcon.astro'
+import GitHub from '@/icons/GithubIcon.astro'
+import LinkedIn from '@/icons/LinkedinIcon.astro'
 import { basics } from '@cv'
 
 const { name, label, image, location, profiles, phone, email } = basics
 
 const { city, region } = location
+
+const SOCIAL_ICONS: Record<string, any> = {
+  GitHub,
+  LinkedIn
+}
 ---
 
-<Section >
-  <div class='info'>
-    <h1>{name}</h1>
-    <h2>{label}</h2>
-    <span>{city}, {region}</span>
-    <footer>
-      {
-        email && (
-          <a
-            href={`mailto:${email}`}
-            title={`Enviar un Email a ${name} a la dirección ${email}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {email}
-          </a>
-        )
-      }
-    </footer>
+<Section>
+  <div class='header'>
+    <div class='info'>
+      <h1>{name}</h1>
+      <p>{label}</p>
+      <span
+        class='location'
+        title='Localidad y Provincia'
+      >
+        <LocationIcon
+          width='32px'
+          height='32px'
+          class='social-icon'
+        />{city}, {region}
+      </span>
+      <footer>
+        {
+          email && (
+            <a
+              href={`mailto:${email}`}
+              target='_blank'
+              rel='noopener noreferrer'
+              title={`Enviar un Email a ${name} a la dirección ${email}`}
+            >
+              <MailIcon
+                width='32px'
+                height='32px'
+                class='social-icon'
+                title={`Enviar un Email a ${name} a la dirección ${email}`}
+              />
+            </a>
+          )
+        }
+        {
+          phone && (
+            <a
+              href={`tel:${phone}`}
+              title={`Llamar a ${name} al número ${phone}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <PhoneIcon
+                width='32px'
+                height='32px'
+                class='social-icon'
+              />
+            </a>
+          )
+        }
+        {
+          profiles.map(({ network, url }) => {
+            const Icon = SOCIAL_ICONS[network]
+            return (
+              <a
+                href={url}
+                title={`Visitar el perfil de ${name} en ${network}`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Icon
+                  width='32px'
+                  height='32px'
+                  class='social-icon'
+                />
+              </a>
+            )
+          })
+        }
+      </footer>
+    </div>
+    <figure>
+      <img
+        width='80'
+        height='80'
+        src={image}
+        alt={`Foto de ${name}`}
+      />
+    </figure>
   </div>
-  <figure>
-    <img
-      width='30'
-      height='30'
-      src={image}
-      alt={`Foto de ${name}`}
-    />
-  </figure>
 </Section>
 
 <style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .info {
+    flex-basis: fit-content;
+  }
+  h1 {
+    font-size: 2.5rem;
+    line-height: 0.6;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-wrap: balance;
+    color: hsl(0, 0%, 20%);
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: hsl(0, 0%, 30%);
+  }
   figure {
-    padding: 0.5rem;
-    display: inline-block;
-    border-radius: 30px;
+    border-radius: 0.75rem;
     background-color: hsl(210, 100%, 90%);
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  footer a {
+    padding: 0.5em;
+    background-color: hsl(0, 0%, 95%);
+    border-radius: 0.5rem;
+    color: hsl(0, 0%, 30%);
+    transition: color 0.2s;
+    &:hover {
+      color: hsl(0, 0%, 0%);
+    }
   }
 </style>

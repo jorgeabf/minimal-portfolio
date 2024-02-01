@@ -1,0 +1,34 @@
+---
+interface Props {
+  dark?: boolean
+}
+
+const { dark } = Astro.props
+---
+
+{
+  dark ? (
+    <span class='dark'>
+      <slot />
+    </span>
+  ) : (
+    <span>
+      <slot />
+    </span>
+  )
+}
+
+<style>
+  span {
+    color: #000;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 0.3em;
+    font-size: 0.7em;
+    padding: 0.25em 0.5em;
+  }
+
+  .dark {
+    color: #fff;
+    background-color: hsl(0, 0%, 10%);
+  }
+</style>

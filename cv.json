@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Jorge Arce",
-    "label": "Desarrollador Web",
+    "label": "Desarrollador Web & Gestor de Contenidos con más de 3 años de experiencia",
     "image": "https://jorgearce.dev/favicon.svg",
     "email": "aportuvas@outlook.es",
     "phone": "+34 666 666 666",
@@ -16,21 +16,37 @@
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "john",
-        "url": "https://twitter.com/john"
+        "network": "LinkedIn",
+        "username": "jorgeabf",
+        "url": "https://linkedin.com/in/jorge-arce-balluerca"
+      },
+      {
+        "network": "GitHub",
+        "username": "jorgeabf",
+        "url": "https://github.com/jorgeabf"
       }
     ]
   },
   "work": [
     {
-      "name": "Company",
-      "position": "President",
+      "name": "Talgo",
+      "position": "Mecánico de Estructuras",
       "url": "https://company.com",
-      "startDate": "2013-01-01",
-      "endDate": "2014-01-01",
-      "summary": "Description…",
-      "highlights": ["Started the company"]
+      "startDate": "2022-12-19",
+      "endDate": null,
+      "summary": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit consectetur libero magnam error blanditiis!",
+      "highlights": ["Mecánica", "Soldadura", "Montaje de Estructuras"],
+      "remote": true
+    },
+    {
+      "name": "Michelín",
+      "position": "Confección de Neumáticos",
+      "url": "https://organization.com/",
+      "startDate": "1997-01-01",
+      "endDate": "2008-01-01",
+      "summary": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit consectetur libero magnam error blanditiis!",
+      "highlights": ["Confección", "Neumáticos", "Montaje"],
+      "remote": false
     }
   ],
   "volunteer": [
