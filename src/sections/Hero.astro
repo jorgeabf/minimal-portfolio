@@ -48,6 +48,7 @@ const githubUrl = githubInfo?.url
                   target='_blank'
                   rel='noopener noreferrer'
                   title={`Enviar un Email a ${name} a la dirección ${email}`}
+                  class='social-link'
                 >
                   {email}
                 </a>
@@ -62,6 +63,7 @@ const githubUrl = githubInfo?.url
                   title={`Llamar a ${name} al número ${phone}`}
                   target='_blank'
                   rel='noopener noreferrer'
+                  class='social-link'
                 >
                   {phone}
                 </a>
@@ -76,6 +78,7 @@ const githubUrl = githubInfo?.url
                   title={`Visitar el perfil de ${name} en LinkedIn`}
                   target='_blank'
                   rel='noopener noreferrer'
+                  class='social-link'
                 >
                   {linkedInUrl}
                 </a>
@@ -90,6 +93,7 @@ const githubUrl = githubInfo?.url
                   title={`Visitar el perfil de ${name} en GitHub`}
                   target='_blank'
                   rel='noopener noreferrer'
+                  class='social-link'
                 >
                   {githubUrl}
                 </a>
@@ -97,60 +101,62 @@ const githubUrl = githubInfo?.url
             )
           }
         </ul>
-        {
-          email && (
-            <a
-              class='social-link'
-              href={`mailto:${email}`}
-              target='_blank'
-              rel='noopener noreferrer'
-              title={`Enviar un Email a ${name} a la dirección ${email}`}
-            >
-              <MailIcon
-                width='24px'
-                height='24px'
-                class='social-icon'
-                title={`Enviar un Email a ${name} a la dirección ${email}`}
-              />
-            </a>
-          )
-        }
-        {
-          phone && (
-            <a
-              class='social-link'
-              href={`tel:${phone}`}
-              title={`Llamar a ${name} al número ${phone}`}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <PhoneIcon
-                width='24px'
-                height='24px'
-                class='social-icon'
-              />
-            </a>
-          )
-        }
-        {
-          profiles.map(({ network, url }) => {
-            const Icon = SOCIAL_ICONS[network]
-            return (
+        <aside class='no-print'>
+          {
+            email && (
               <a
-                class='social-link'
-                href={url}
-                title={`Visitar el perfil de ${name} en ${network}`}
+                class='social-link-icon'
+                href={`mailto:${email}`}
                 target='_blank'
                 rel='noopener noreferrer'
+                title={`Enviar un Email a ${name} a la dirección ${email}`}
               >
-                <Icon
+                <MailIcon
                   width='24px'
                   height='24px'
+                  class='social-icon'
+                  title={`Enviar un Email a ${name} a la dirección ${email}`}
                 />
               </a>
             )
-          })
-        }
+          }
+          {
+            phone && (
+              <a
+                class='social-link-icon'
+                href={`tel:${phone}`}
+                title={`Llamar a ${name} al número ${phone}`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <PhoneIcon
+                  width='24px'
+                  height='24px'
+                  class='social-icon'
+                />
+              </a>
+            )
+          }
+          {
+            profiles.map(({ network, url }) => {
+              const Icon = SOCIAL_ICONS[network]
+              return (
+                <a
+                  class='social-link-icon'
+                  href={url}
+                  title={`Visitar el perfil de ${name} en ${network}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <Icon
+                    width='24px'
+                    height='24px'
+                  />
+                </a>
+              )
+            })
+          }
+        </aside>
       </footer>
     </div>
     <Image
@@ -193,7 +199,7 @@ const githubUrl = githubInfo?.url
     margin-bottom: 1rem;
   }
 
-  footer a {
+  .social-link-icon {
     padding: 0.5em;
     background-color: var(--bg-light);
     border-radius: var(--border-radius);
@@ -204,7 +210,21 @@ const githubUrl = githubInfo?.url
     }
   }
 
+  .social-link {
+    color: var(--text-color);
+    transition: color 0.2s;
+    &:hover {
+      color: hsl(0, 0%, 0%);
+      text-decoration: underline;
+    }
+  }
+
+  .no-print {
+    display: flex;
+    gap: 0.5rem;
+  }
   .print {
+    list-style: inside;
     display: none;
   }
 
@@ -212,7 +232,7 @@ const githubUrl = githubInfo?.url
     .print {
       display: block;
     }
-    .social-link,
+    .no-print,
     .location {
       display: none;
     }
