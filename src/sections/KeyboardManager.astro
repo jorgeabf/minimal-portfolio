@@ -1,46 +1,30 @@
----
-import Badge from '@/components/Badge.astro'
----
-
-<aside>
-  Pulsa <Badge dark><kbd>Cmd</kbd></Badge> + <Badge dark><kbd>K</kbd></Badge> para
-  abrir la paleta de comandos.
-</aside>
-
-<ninja-keys
-  placeholder='Buscar comando'
-  hideBreadcrumbs
->
-</ninja-keys>
-
+<button> Imprimir C.V.</button>
 <script>
-  import 'ninja-keys'
-  const ninja = document.querySelector('ninja-keys')
+  const $button = document.querySelector('button')
 
-  if (ninja !== null) {
-    ninja.data = [
-      {
-        id: 'print',
-        title: 'Imprimir C.V.',
-        hotkey: 'ctrl+P',
-        section: 'Acciones',
-        handler: () => {
-          window.print()
-        }
-      }
-    ]
+  if ($button) {
+    $button.addEventListener('click', () => {
+      window.print()
+    })
   }
 </script>
 
 <style>
+  button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75em 1em;
+    background-color: var(--bg-dark);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    z-index: 1;
+  }
   @media print {
-    .ninja-keys, aside {
+    button {
       display: none;
     }
-  }
-
-  aside {
-    padding: 1em;
-    background-color: var(--bg-light);
   }
 </style>
