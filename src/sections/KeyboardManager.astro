@@ -3,7 +3,8 @@
   const $button = document.querySelector('button')
 
   if ($button) {
-    $button.addEventListener('click', () => {
+    $button.addEventListener('click', (e) => {
+      e.preventDefault()
       window.print()
     })
   }

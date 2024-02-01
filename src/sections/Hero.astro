@@ -40,18 +40,62 @@ const githubUrl = githubInfo?.url
       </span>
       <footer class='flex'>
         <ul class='print'>
-          <li>
-            {email}
-          </li>
-          <li>
-            {phone}
-          </li>
-          <li>
-            {linkedInUrl}
-          </li>
-          <li>
-            {githubUrl}
-          </li>
+          {
+            email && (
+              <li>
+                <a
+                  href={`mailto:${email}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  title={`Enviar un Email a ${name} a la dirección ${email}`}
+                >
+                  {email}
+                </a>
+              </li>
+            )
+          }
+          {
+            phone && (
+              <li>
+                <a
+                  href={`tel:${phone}`}
+                  title={`Llamar a ${name} al número ${phone}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {phone}
+                </a>
+              </li>
+            )
+          }
+          {
+            linkedInUrl && (
+              <li>
+                <a
+                  href={linkedInUrl}
+                  title={`Visitar el perfil de ${name} en LinkedIn`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {linkedInUrl}
+                </a>
+              </li>
+            )
+          }
+          {
+            githubUrl && (
+              <li>
+                <a
+                  href={githubUrl}
+                  title={`Visitar el perfil de ${name} en GitHub`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {githubUrl}
+                </a>
+              </li>
+            )
+          }
         </ul>
         {
           email && (
@@ -158,10 +202,6 @@ const githubUrl = githubInfo?.url
     &:hover {
       color: hsl(0, 0%, 0%);
     }
-  }
-
-  .social-link {
-    z-index: 1;
   }
 
   .print {
