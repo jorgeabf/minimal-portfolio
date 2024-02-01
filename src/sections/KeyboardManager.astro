@@ -1,1 +1,46 @@
-<h2>KeyboardManager</h2>
+---
+import Badge from '@/components/Badge.astro'
+---
+
+<aside>
+  Pulsa <Badge dark><kbd>Cmd</kbd></Badge> + <Badge dark><kbd>K</kbd></Badge> para
+  abrir la paleta de comandos.
+</aside>
+
+<ninja-keys
+  placeholder='Buscar comando'
+  hideBreadcrumbs
+>
+</ninja-keys>
+
+<script>
+  import 'ninja-keys'
+  const ninja = document.querySelector('ninja-keys')
+
+  if (ninja !== null) {
+    ninja.data = [
+      {
+        id: 'print',
+        title: 'Imprimir C.V.',
+        hotkey: 'ctrl+P',
+        section: 'Acciones',
+        handler: () => {
+          window.print()
+        }
+      }
+    ]
+  }
+</script>
+
+<style>
+  @media print {
+    .ninja-keys {
+      display: none;
+    }
+  }
+
+  aside {
+    padding: 1em;
+    background-color: var(--bg-light);
+  }
+</style>
