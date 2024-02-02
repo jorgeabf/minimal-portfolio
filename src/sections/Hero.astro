@@ -7,6 +7,7 @@ import GitHub from '@/icons/GithubIcon.astro'
 import LinkedIn from '@/icons/LinkedinIcon.astro'
 import { basics } from '@cv'
 import { Image } from 'astro:assets'
+import { CURRENT_DATE } from '@/utils'
 
 const { name, label, image, location, profiles, phone, email } = basics
 
@@ -27,7 +28,7 @@ const githubUrl = githubInfo?.url
   <div class='header'>
     <div class='info'>
       <h1>{name}</h1>
-      <p>{label}</p>
+      <p class='label'>{label}</p>
       <span
         class='location flex'
         title='Localidad y Provincia'
@@ -158,6 +159,7 @@ const githubUrl = githubInfo?.url
           }
         </aside>
       </footer>
+      <p class='current-date'>Actualizado: {CURRENT_DATE}</p>
     </div>
     <Image
       width='100'
@@ -187,9 +189,9 @@ const githubUrl = githubInfo?.url
     line-height: 0.6;
   }
 
-  p {
+  .label {
     margin-bottom: 0.75rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.2;
     text-wrap: balance;
     color: hsl(0, 0%, 10%);
@@ -236,5 +238,10 @@ const githubUrl = githubInfo?.url
     .location {
       display: none;
     }
+  }
+
+  .current-date {
+    margin-top: 1em;
+    margin-bottom: 0;
   }
 </style>
